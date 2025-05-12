@@ -15,6 +15,8 @@ public class GameScene : MonoBehaviour
         _player.name = _playerPrefab.name;
 
         _player.AddComponent<PlayerController>();
+
+        Camera.main.GetComponent<CameraController>().target = _player;
     }
 
     // Update is called once per frame
