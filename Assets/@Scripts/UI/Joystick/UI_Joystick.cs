@@ -25,6 +25,7 @@ public class UI_Joystick : MonoBehaviour , IPointerClickHandler,IPointerDownHand
     {
         _joystickRadius = _background.gameObject.GetComponent<RectTransform>().sizeDelta.y / 2;
         _player = GameObject.Find("Player").GetComponent<PlayerController>();
+
     }
 
     // Update is called once per frame
@@ -40,6 +41,7 @@ public class UI_Joystick : MonoBehaviour , IPointerClickHandler,IPointerDownHand
 
     public void OnPointerDown(UnityEngine.EventSystems.PointerEventData eventData)
     {
+        
         //Debug.Log("OnPointerDown");
         _background.transform.position = eventData.position;
         _handler.transform.position = eventData.position;
@@ -56,7 +58,12 @@ public class UI_Joystick : MonoBehaviour , IPointerClickHandler,IPointerDownHand
         _moveDir = Vector2.zero;
 
         // TEMP1
-        _player.MoveDir = _moveDir;
+        // _player.MoveDir = _moveDir;
+
+        // TEMP2
+        Managers.MoveDir = _moveDir;
+
+        
     }
 
     public void OnDrag(UnityEngine.EventSystems.PointerEventData eventData)
@@ -72,6 +79,9 @@ public class UI_Joystick : MonoBehaviour , IPointerClickHandler,IPointerDownHand
         _handler.transform.position = newPosition;
 
         // TEMP1
-        _player.MoveDir = _moveDir;
+        // _player.MoveDir = _moveDir;
+
+        // TEMP2
+        Managers.MoveDir = _moveDir;
     }
 }

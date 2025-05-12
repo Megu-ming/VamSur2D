@@ -36,6 +36,9 @@ public class PlayerController : MonoBehaviour
 
     void MovePlayer()
     {
+        // TEMP2
+        _moveDir = Managers.MoveDir;
+
         Vector3 dir = _moveDir * moveSpeed * Time.deltaTime;
         transform.position += dir;
     }
